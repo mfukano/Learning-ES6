@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring</title>
+</head>
+<body>
+<script>
+  const person = {
+    first: 'Mat',
+    last: 'Fukano',
+    country: 'USA',
+    city: 'San Francisco',
+    twitter: '@marotafuka'
+  }
+
+  // const { first, last, twitter } = person
+
+  const mat = {
+    first: 'Mat',
+    last: 'Fukano',
+    links: {
+      social: {
+        twitter: 'https://twitter.com/marotafuka',
+        facebook: 'https://facebook.com/mat-fukano',
+      },
+      web: {
+        personal: 'https://matfukano.com'
+      }
+    }
+  }
+
+  const { twitter:tweet, facebook:fb } = mat.links.social
+
+  // create an element and style it
+  const settings = {width: 300, color: 'black'} // additional reqs: height, fontSize
+  const { width = 100, height = 100, color='blue', fontSize=25 } = settings
+
+  // Tre bizarre
+  // const { w:width = 400, h: height = 500 } = { w:800 }
+
+</script>
+</body>
+</html>

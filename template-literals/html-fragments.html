@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Template Strings!</title>
+</head>
+<body>
+<script>
+  const person = {
+    name: 'Mat',
+    job: 'Web Developer',
+    city: 'San Francisco',
+    bio: 'Mat does music and web development because he tries to be cool..'
+  };
+
+  const dogs = [
+    { name: 'Snickers', age: 2 },
+    { name: 'Hugo', age: 8 },
+    { name: 'Sunny', age: 1 }
+  ];
+
+  const song = {
+    name: 'Smother',
+    artist: 'Tennyson',
+    featuring: 'Mothica'
+  }
+
+  const beer = {
+    name: 'Belgian Wit',
+    brewery: 'Steam Whistle Brewery',
+    keywords: ['pale', 'cloudy', 'spiced', 'crisp']
+  }
+
+  function renderKeywords(keywords) {
+    return `
+      <ul>
+        ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+      </ul>
+    `
+  }
+
+  const markup = `
+    <div class="person">
+      <h2>
+        ${person.name}
+        <span class="job">
+          -- ${person.job}
+        </span>
+      </h2>
+      <p class="location">
+        ${person.city}
+      </p>
+      <p class="bio">
+        ${person.bio}
+      </p>
+    </div>
+
+    <div class="person">
+      <h2>Dogs</h2>
+      <ul class="dogs">
+        ${dogs.map(dog => `
+          <li>
+            ${dog.name}
+            is
+            ${dog.age * 7}
+          </li>
+          `).join('')}
+      </ul>
+    </div>
+
+    <div class="song">
+      <h2>Song</h2>
+      <p>
+        ${song.name} - ${song.artist}
+        ${song.featuring ? `(featuring ${song.featuring})` : ''}
+      </p>
+    </div>
+
+    <div class="beer">
+      <h2>Beer Classes</h2>
+        <h3>${beer.name}</h3>
+        <p class="brewery">${beer.brewery}</p>
+        ${renderKeywords(beer.keywords)}
+    </div>
+  `;
+
+  document.body.innerHTML = markup;
+</script>
+</body>
+</html>
